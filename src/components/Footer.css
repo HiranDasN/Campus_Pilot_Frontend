@@ -1,0 +1,11 @@
+.atag{
+    font-weight: 600;
+    color: rgb(189, 189, 189);
+}.ptag{
+    font-weight: 600;
+    color: rgba(217, 212, 212, 0.852);
+}
+
+.atag:hover{
+    color: white;
+}
