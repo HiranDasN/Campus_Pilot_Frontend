@@ -6,17 +6,13 @@ import { BASE_URL } from '../services/baseurl';
 import {  editStudentResponseContext } from '../context/ContextShare';
 import Swal from 'sweetalert2';
 import { useParams } from 'react-router-dom';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-function SpecificStudents() {
+
+function Student_SpecificView() {
   const [allStudentget,setAllStudentGet] = useState([])
   const [studentSearchKey,setStudentSearchKey] = useState("")
   const {editStudentResponse,setEditStudentResponse} = useContext(editStudentResponseContext)
   const { classname } = useParams();
 
-  useEffect(()=>{
-    AOS.init({duration:'1000' , delay:'100'});
-  },[])
   const getAllStudents = async()=>{
     
     if(sessionStorage.getItem("token")){
@@ -89,7 +85,7 @@ const handleDelete = async(id)=>{
          {allStudentget?.length>0?
          allStudentget?.map((item)=>(<Col>
           <div className="container mt-3">
-      <div data-aos="zoom-in" className="card rounded cardshd">
+      <div className="card rounded cardshd">
       <div className="text-center">
          <div className='rounded-circle overflow-hidden mx-auto mt-2' style={{ width: '200px', height: '200px' }}>
          <img
@@ -104,12 +100,7 @@ const handleDelete = async(id)=>{
           <h4 className="card-title text-center text-primary">{item.studentName}</h4>
           <h5 className="card-text text-center ">{item.registrationNumber}</h5>
           <h5 className="card-text text-center text-primary">{item.selectedClass}</h5>
-          <div className="d-flex justify-content-between align-items-center container">
-            <EditStudent studentupdate={item} />
-            <button onClick={()=>handleDelete(item._id)} className="btn btn-danger rounded">
-              <i className="fa-solid fa-trash"></i>
-            </button>
-          </div>
+         
         </div>
       </div>
     </div>
@@ -124,4 +115,4 @@ const handleDelete = async(id)=>{
   )
 }
 
-export default SpecificStudents
+export default Student_SpecificView

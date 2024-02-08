@@ -63,7 +63,6 @@ useEffect(()=>{
             
               <Nav className="flex-column ">
                 <Nav.Link href="/teacherdashboard"><i className="fa-solid fa-house-lock me-2"></i>Dashboard</Nav.Link>
-                <Nav.Link href="/teacher/message"><i class="fa-regular fa-message me-2"></i>Messaging</Nav.Link>
                 <Nav.Link href="/teacher/teacherinfo"><i className="fa-solid fa-gear me-2"></i>Account Settings</Nav.Link>
                 <Nav.Link onClick={handleLogout}><i className="fa-solid fa-sign-out me-2"></i>Logout</Nav.Link>
               </Nav>

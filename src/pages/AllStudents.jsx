@@ -5,10 +5,19 @@ import { allStudentsAPI, deleteStudentAPI } from '../services/allAPI';
 import { BASE_URL } from '../services/baseurl';
 import {  editStudentResponseContext } from '../context/ContextShare';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 function AllStudents() {
+
   const [allStudentget,setAllStudentGet] = useState([])
   const [studentSearchKey,setStudentSearchKey] = useState("")
   const {editStudentResponse,setEditStudentResponse} = useContext(editStudentResponseContext)
+
+  useEffect(()=>{
+    AOS.init({duration:'1000' , delay:'100'});
+  },[])
 
   const getAllStudents = async()=>{
     
@@ -93,30 +102,34 @@ const handleDelete = async (id) => {
        
          {allStudentget?.length>0?
          allStudentget?.map((item)=>(<Col>
-          <div className="container mt-3">
-      <div className="card rounded cardshd">
-      <div className="text-center">
-         <div className='rounded-circle overflow-hidden mx-auto mt-2' style={{ width: '200px', height: '200px' }}>
-         <img
-          src={`${BASE_URL}/uploads/${item.studentImage}`}
-          className="card-img d-block mx-auto"
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          alt="Teacher Image"
-        />
-         </div>
-      </div>
-        <div className="card-body">
-          <h4 className="card-title text-center text-primary">{item.studentName}</h4>
-          <h5 className="card-text text-center ">{item.registrationNumber}</h5>
-          <h5 className="card-text text-center text-primary">{item.selectedClass}</h5>
-          <div className="d-flex justify-content-between align-items-center container">
-            <EditStudent studentupdate={item} />
-            <button onClick={()=>handleDelete(item._id)} className="btn btn-danger rounded">
-              <i className="fa-solid fa-trash"></i>
-            </button>
+          <div   className="container mt-3">
+
+    <Link to={`/admin/studentspecificdetails/${item.studentName}`} style={{textDecoration:'none'}}>
+        <div data-aos="zoom-in" className="btn card rounded cardshd">
+        <div className="text-center">
+           <div className='rounded-circle overflow-hidden mx-auto mt-2' style={{ width: '200px', height: '200px' }}>
+           <img
+            src={`${BASE_URL}/uploads/${item.studentImage}`}
+            className="card-img d-block mx-auto"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            alt="Teacher Image"
+          />
+           </div>
+        </div>
+          <div className="card-body">
+            <h4 className="card-title text-center text-primary">{item.studentName}</h4>
+            <h5 className="card-text text-center ">{item.registrationNumber}</h5>
+            <h5 className="card-text text-center text-primary">{item.selectedClass}</h5>
+            <div className="d-flex justify-content-between align-items-center container">
+              <EditStudent studentupdate={item} />
+              <button onClick={()=>handleDelete(item._id)} className="btn btn-danger rounded">
+                <i className="fa-solid fa-trash"></i>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+    </Link>
+
     </div>
           </Col>))
          

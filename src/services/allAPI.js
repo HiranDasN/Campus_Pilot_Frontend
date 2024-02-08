@@ -118,3 +118,4 @@ export const StudentLoginAPI = async(students)=>{
 export const editStdLoginAPI  = async(studentId,reqBody,reqHeader)=>{
    return await commonAPI('PUT',`${BASE_URL}/student/UpdateStudentInfo/${studentId}`,reqBody,reqHeader)
 }
+

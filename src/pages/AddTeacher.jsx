@@ -10,6 +10,7 @@ function AddTeacher() {
        
       </Col>
       <Col md={4}>
+        <br />
       <TeacherAdd/>
       </Col>
       <Col md={4}>

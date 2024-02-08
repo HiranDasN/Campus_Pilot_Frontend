@@ -284,7 +284,7 @@ function AdminDashboard () {
         <Card className='cardshd rounded align-items-center d-flex justify-content-center '>
           <Card.Body >
             <h5 className='text-center'>Calendar</h5>
-            <Calendar className='bg-dark rounded' onChange={handleDateChange} value={date} />
+            <Calendar className='rounded' onChange={handleDateChange} value={date} />
 
           </Card.Body>
         </Card>

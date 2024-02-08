@@ -3,6 +3,8 @@ import { Container, Card, TextField, Button } from '@mui/material';
 import { editAdminLoginAPI } from '../../services/allAPI';
 import Swal from 'sweetalert2';
 import { editAdminLogResponseContext } from '../../context/ContextShare';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function UpdateAdmin() {
 
   const [adminLoginData, setAdminLoginData] = useState({
@@ -17,6 +19,9 @@ useEffect(()=>{
   
 },[])
 
+useEffect(()=>{
+  AOS.init({duration:'1000' , delay:'100'});
+},[])
 
 const handleUpdate = async()=>{
 
@@ -62,7 +67,7 @@ const handleUpdate = async()=>{
 
   return (
     <Container className="my-5">
-     <div className='cardshd'>
+     <div data-aos="fade-up-right" className='cardshd'>
         <Card className="p-4">
           <h2 className="text-center mb-4">Update Admin</h2>
           <form>

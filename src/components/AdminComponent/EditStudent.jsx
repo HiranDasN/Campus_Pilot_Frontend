@@ -159,7 +159,7 @@ console.log( studentData);
         </Col>
    <Col md={6} className='d-flex justify-content-center align-items-center flex-column'>
        
-   <div className="mb-3 w-100">
+   <div className="mb-3 mt-3 w-100">
      <TextField fullWidth label="Student Name" type='text' variant="outlined" value={studentData.studentName} onChange={e=>setStudentData({...studentData,studentName:e.target.value})} />
    </div>
 

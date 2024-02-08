@@ -108,10 +108,7 @@ setIsteacherAuthToken(false)
                 src={carslimg}
                 alt="First slide"
               />
-              {/* <Carousel.Caption>
-                <h3>Interactive Interface</h3>
-                <p>Explore our user-friendly and interactive platform.</p>
-              </Carousel.Caption> */}
+              
             </Carousel.Item>
             <Carousel.Item>
               <img
@@ -119,10 +116,7 @@ setIsteacherAuthToken(false)
                 src={casrlimg2}
                 alt="Second slide"
               />
-              {/* <Carousel.Caption>
-                <h3>Efficient Management</h3>
-                <p>Effortlessly manage all aspects of your school's operations.</p>
-              </Carousel.Caption> */}
+             
             </Carousel.Item>
            
             <Carousel.Item>
@@ -131,10 +125,7 @@ setIsteacherAuthToken(false)
                 src={carslimg3}
                 alt="Second slide"
               />
-              {/* <Carousel.Caption>
-                <h3>Efficient Management</h3>
-                <p>Effortlessly manage all aspects of your school's operations.</p>
-              </Carousel.Caption> */}
+             
             </Carousel.Item>
 
             <Carousel.Item>
@@ -143,10 +134,7 @@ setIsteacherAuthToken(false)
                 src={carslimg4}
                 alt="Second slide"
               />
-              {/* <Carousel.Caption>
-                <h3>Efficient Management</h3>
-                <p>Effortlessly manage all aspects of your school's operations.</p>
-              </Carousel.Caption> */}
+             
             </Carousel.Item>
 
             <Carousel.Item>
@@ -155,10 +143,7 @@ setIsteacherAuthToken(false)
                 src={carslimg5}
                 alt="Second slide"
               />
-              {/* <Carousel.Caption>
-                <h3>Efficient Management</h3>
-                <p>Effortlessly manage all aspects of your school's operations.</p>
-              </Carousel.Caption> */}
+            
             </Carousel.Item>
           </Carousel>
         </Container>

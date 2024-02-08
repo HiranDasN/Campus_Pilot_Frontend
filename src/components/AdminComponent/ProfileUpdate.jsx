@@ -4,6 +4,8 @@ import Swal from 'sweetalert2';
 import { updateProfileAPI } from '../../services/allAPI';
 import { BASE_URL } from '../../services/baseurl';
 import { editInstituteResponseContext } from '../../context/ContextShare';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function ProfileUpdate() {
   
 
@@ -124,9 +126,14 @@ function ProfileUpdate() {
  }
 
 
+ useEffect(()=>{
+  AOS.init({duration:'1000' , delay:'100'});
+},[])
+
   return (
     <>
-      <div className='cardshd container rounded' style={{background: 'white'}}>
+
+      <div data-aos="fade-up-right" className='cardshd container rounded' style={{background: 'white'}}>
           <Typography className='pt-2' variant="h4" component="h2" align="center" gutterBottom>
             Update Institute Profile
           </Typography>

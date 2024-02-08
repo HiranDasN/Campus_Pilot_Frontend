@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import Collapse from 'react-bootstrap/Collapse';
 import { BASE_URL } from '../../services/baseurl';
 import { editInstituteResponseContext } from '../../context/ContextShare';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function InstituteProfile() {
 
   const [open, setOpen] = useState(true);
@@ -14,11 +15,13 @@ function InstituteProfile() {
     
   },[allAdminInstitute,editInstituteResponse])
 
-
+  useEffect(()=>{
+    AOS.init({duration:'1000' , delay:'100'});
+  },[])
   return (
     <>
     
-    <div className='card cardshd rounded p-5'>
+    <div data-aos="fade-up-left" className='card cardshd rounded p-5'>
       <div className="d-flex justify-content-between ">
         <h2>Institute Profile</h2>
         <button onClick={() => setOpen(!open)} style={{marginTop:'-8px'}} className="btn btn-outline-info">
@@ -41,7 +44,7 @@ function InstituteProfile() {
             <h6 className='form-control-static'>Institute Name: {allAdminInstitute.instituteName}</h6>
           </div>
           <div className="mt-3 mb-1  text-center">
-            <h6 className='form-control-static'>Phone Number: {allAdminInstitute.phoneNumber} </h6>
+            <h6 className='form-control-static'>Phone Number:+91 {allAdminInstitute.phoneNumber} </h6>
           </div>
           <div className="mt-3 mb-1 text-center">
             <h6 className='form-control-static'>Email Address: {allAdminInstitute.schoolEmail}</h6>

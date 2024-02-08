@@ -5,6 +5,8 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { editAdminLogResponseContext, isAdminDeletedContext, isAuthTokenContext} from '../../context/ContextShare';
 import { deleteAdminAPI } from '../../services/allAPI';
 import Swal from 'sweetalert2';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function DeleteAdmin() {
 
   const {isAuthToken,setIsAuthToken} = useContext(isAuthTokenContext)
@@ -19,6 +21,9 @@ function DeleteAdmin() {
     setAdminLoginInfo(existingAdmin);
   }, [editAdminLogResponse]);
 
+  useEffect(()=>{
+    AOS.init({duration:'1000' , delay:'100'});
+  },[])
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -70,7 +75,7 @@ function DeleteAdmin() {
 
   return (
     <Container className="my-5">
-      <div className="card cardshd p-4 rounded">
+      <div data-aos="fade-up-left" className="card cardshd p-4 rounded">
         <h2 className="text-center mb-4">Account Details</h2>
         <Row className="mb-3 ms-5">
           <Col md={4}>

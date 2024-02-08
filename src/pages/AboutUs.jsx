@@ -28,8 +28,10 @@ function AboutUs() {
               Get Started
             </Button>
           </Link>
+
         </Col>
         <Col md={6}>
+          <br />
           <img
             src="https://i0.wp.com/bcelearn.co.uk/wp-content/uploads/2020/11/adminbiz.jpg?fit=1024%2C683&ssl=1"
             alt="About CampusPilot"

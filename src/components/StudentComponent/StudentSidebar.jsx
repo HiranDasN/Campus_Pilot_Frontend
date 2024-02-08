@@ -61,8 +61,7 @@ useEffect(()=>{
             </div>                    <h5 className='text-center mt-3'>{adminGet.instituteName}</h5>
             
               <Nav className="flex-column ">
-                <Nav.Link href="/teacherdashboard"><i className="fa-solid fa-house-lock me-2"></i>Dashboard</Nav.Link>
-                <Nav.Link href="#"><i class="fa-regular fa-message me-2"></i>Messaging</Nav.Link>
+                <Nav.Link href="/studentdashboard"><i className="fa-solid fa-house-lock me-2"></i>Dashboard</Nav.Link>
                 <Nav.Link href="/student/studentinfo"><i className="fa-solid fa-gear me-2"></i>Account Settings</Nav.Link>
                 <Nav.Link onClick={handleLogout}><i className="fa-solid fa-sign-out me-2"></i>Logout</Nav.Link>
               </Nav>

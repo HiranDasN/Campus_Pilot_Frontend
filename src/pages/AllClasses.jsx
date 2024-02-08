@@ -5,7 +5,8 @@ import { allClassesAPI, allStudentsAPI, deleteClassAPI } from '../services/allAP
 import { editClassResponseContext } from '../context/ContextShare';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function AllClasses() {
   const [allStudentget, setAllStudentGet] = useState([]);
 
@@ -14,6 +15,10 @@ function AllClasses() {
   const { editClassResponse, setEditClassResponse } = useContext(editClassResponseContext);
   const [allClsget, setAllClsGet] = useState([]);
   const [classSearchKey, setClassSearchKey] = useState("");
+
+  useEffect(()=>{
+    AOS.init({duration:'1000' , delay:'100'});
+  },[])
 
   const getAllClass = async () => {
     if (sessionStorage.getItem("token")) {
@@ -119,14 +124,13 @@ function AllClasses() {
             return (
               <Col key={item._id}>
                 <div className="container mt-3 w-100">
-                  <div className="card w-100 rounded cardhvr" style={{ backgroundColor: 'steelblue' }}>
+                <Link to={`/admin/specificstudents/${item.className}`} style={{textDecoration:'none'}}>
+                  <div data-aos="zoom-in" className="btn card w-100 rounded cardhvr" style={{ backgroundColor: 'steelblue' }}>
                     <div className="card-body">
                       <h3 className="card-title text-center text-light">{item.className}</h3>
                       <div className="d-flex justify-content-between align-items-center container mt-4">
                         <h3 className="card-text text-center pt-3 text-light" style={{ fontSize: '34px' }}>{studentCount}</h3>
-                        <Link to={`/admin/specificstudents/${item.className}`}>
                           <i className="fa-solid fa-user-graduate fa-2x text-light"></i>
-                        </Link>
                       </div>
                       <h4 className='text-light ms-2' style={{ float: 'left' }}>Student</h4>
                       <div className="d-flex justify-content-between align-items-center container mt-5">
@@ -137,6 +141,7 @@ function AllClasses() {
                       </div>
                     </div>
                   </div>
+                  </Link>
                 </div>
               </Col>
             );

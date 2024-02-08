@@ -143,7 +143,7 @@ function EditTeacher({teacherupdate}) {
    <Col md={6} className='d-flex justify-content-center align-items-center flex-column'>
          <label htmlFor="image" className='text-center'>
                 <input id="image" type="file" style={{display:"none"}} onChange={e=>setTeacherAdd({...teacherAdd,teacherImage:e.target.files[0]})}   />
-                <img  width={'300px'} height={'300px'} src={previewTeacher?previewTeacher:`${BASE_URL}/uploads/${teacherupdate.teacherImage}`} alt="no image"  /> 
+                <img className='rounded'  width={'300px'} height={'300px'} src={previewTeacher?previewTeacher:`${BASE_URL}/uploads/${teacherupdate.teacherImage}`} alt="no image"  /> 
                 <br />
                 <br />
             </label>

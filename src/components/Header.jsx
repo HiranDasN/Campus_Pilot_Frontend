@@ -157,23 +157,23 @@ function Header() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              {!isAdminLoggedIn && !isHomeLink && (
+              {!isAdminLoggedIn && !isHomeLink && !isTeacherLoggedIn && !isStudentLoggedIn && (
                 <Nav.Link as={NavLink} to="/" exact>
                   Home
                 </Nav.Link>
               )}
 
-              {!isAdminLoggedIn && shouldDisplayLink('/aboutus') && (
+              {!isAdminLoggedIn && shouldDisplayLink('/aboutus') && !isTeacherLoggedIn && !isStudentLoggedIn && (
                 <Nav.Link as={Link} to="/aboutus">
                   About
                 </Nav.Link>
               )}
 
-              {!isAdminLoggedIn && shouldDisplayLink('/contact') && (
+              {!isAdminLoggedIn && shouldDisplayLink('/contact') && !isTeacherLoggedIn && !isStudentLoggedIn && (
                 <Nav.Link href="/contact">Contact</Nav.Link>
               )}
 
-              {!isAdminLoggedIn && (
+              {!isAdminLoggedIn && !isTeacherLoggedIn && !isStudentLoggedIn && (
                 <Nav.Link href="https://www.howtogeek.com/434340/how-to-troubleshoot-web-pages-that-wont-load/">
                   Help
                 </Nav.Link>

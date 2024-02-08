@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Container, Row, Col, Form, Button, Image } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
@@ -6,7 +6,8 @@ import userImage from '../images/graduate.png';
 import Swal from 'sweetalert2';
 import { StudentLoginAPI } from '../services/allAPI';
 import { StudentHeaderContentContext, isStudentAuthTokenContext } from '../context/ContextShare';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function StudentLogin() {
 
   const {studentHeadercontent,setStudentHeaderContent} = useContext(StudentHeaderContentContext)
@@ -69,12 +70,16 @@ function StudentLogin() {
       }
     }
   };
+
+  useEffect(()=>{
+    AOS.init({duration:'1000' , delay:'100'});
+  },[])
   return (
     <div style={{ minHeight: '100vh', background: '#f4f4f4' }} className="d-flex align-items-center justify-content-center">
-      <Container style={{ width: '80%' }}>
+      <Container>
         <Row className="justify-content-center">
           <Col xs={12} md={6} lg={4}>
-            <div className="container cardshd p-4 mb-5 bg-white rounded">
+            <div data-aos="zoom-in" className="container cardshd p-4 mb-5 bg-white rounded">
               <div className="text-center">
                 <Image src={userImage} alt="User" className="rounded-circle mb-3" width="120" height="120" />
               </div>

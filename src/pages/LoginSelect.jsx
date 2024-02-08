@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col, Card, Button, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import adminImage from '../images/software-engineer.png';
 import studentImage from '../images/graduate.png';
 import teacherImage from '../images/teacher.png';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function LoginSelect() {
+  useEffect(()=>{
+    AOS.init({duration:'1000' , delay:'180'});
+  },[])
   return (
     <>
       <div style={{ minHeight: '100vh', background: '#f4f4f4', marginTop:'-80px' }} className="d-flex align-items-center justify-content-center">
@@ -20,7 +25,7 @@ function LoginSelect() {
   
           <Row className="justify-content-center">
             <Col xs={12} md={6} lg={4}>
-              <Card className="mb-4 text-center homeshd" border="primary">
+              <Card data-aos="fade-up" className="mb-4 text-center homeshd" border="primary">
                 <div>
                   <Image src={adminImage} alt="Admin" className="rounded-circle mt-3" width="80" height="80" />
     
@@ -37,7 +42,7 @@ function LoginSelect() {
             </Col>
   
             <Col xs={12} md={6} lg={4}>
-              <Card className="mb-4 text-center homeshd" border="info" >
+              <Card data-aos="fade-up" className="mb-4 text-center homeshd" border="info" >
                 <div>
                   <Image src={teacherImage} alt="Teacher" className="rounded-circle mt-3" width="80" height="80" />
     
@@ -53,7 +58,7 @@ function LoginSelect() {
             </Col>
   
             <Col xs={12} md={6} lg={4}>
-              <Card className="mb-4 text-center homeshd" border="success" >
+              <Card data-aos="fade-up" className="mb-4 text-center homeshd" border="success" >
                 <div>
                   <Image src={studentImage} alt="Student"  className="rounded-circle mt-3" width="80" height="80" />
                   </div>

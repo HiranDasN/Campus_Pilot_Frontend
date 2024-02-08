@@ -25,8 +25,14 @@ import TeacherDashboard from './pages/TeacherDashboard';
 import TeacherAccountSettings from './pages/TeacherAccountSettings';
 import StudentDashboard from './pages/StudentDashboard';
 import StudentAccount from './pages/StudentAccount';
-import TeacherMessages from './pages/TeacherMessages';
 import SpecificStudents from './pages/SpecificStudents';
+import Teacher_Dash_ClassView from './pages/Teacher_Dash_ClassView';
+import Teacher_Dash_StudentView from './pages/Teacher_Dash_StudentView';
+import Student_Dash_ClassView from './pages/Student_Dash_ClassView';
+import Student_SpecificView from './pages/Student_SpecificView';
+import Student_Dash_TeacherView from './pages/Student_Dash_TeacherView';
+import AdminSpecificTeacher from './pages/AdminSpecificTeacher';
+import AdminSpecificStudent from './pages/AdminSpecificStudent';
 
 
 
@@ -59,14 +65,24 @@ function App() {
     <Route path='/admin/addstudent' element={isAuthToken?<AddStudent/>:<Home/>}/>
     <Route path='/contact' element={<ContactSupport/>}  />
     <Route path='/aboutus' element={<AboutUs/>}/>
+    <Route path='/admin/teacherspecificdetails/:teachername' element={isAuthToken?<AdminSpecificTeacher/>:<Home/>}/>
+    <Route path='/admin/studentspecificdetails/:studentname' element={isAuthToken?<AdminSpecificStudent/>:<Home/>}/>
+
 
     <Route path='/teacherdashboard' element={isTeacherAuthToken?<TeacherDashboard/>:<Home/>}/>
     <Route path='/teacher/teacherinfo' element={isTeacherAuthToken?<TeacherAccountSettings/>:<Home/>}/>
-    <Route path='/teacher/message' element={isTeacherAuthToken?<TeacherMessages/>:<Home/>}/>
+    <Route path='/teacher/teacherclass/:classname' element={isTeacherAuthToken?<Teacher_Dash_ClassView/>:<Home/>}/>
+    <Route path='/teacher/teacherstudent/:classname' element={isTeacherAuthToken?<Teacher_Dash_StudentView/>:<Home/>}/>
+
+
 
 
     <Route path='/studentdashboard' element={isStudentAuthToken?<StudentDashboard/>:<Home/>}/>
     <Route path='/student/studentinfo' element={isStudentAuthToken?<StudentAccount/>:<Home/>}/>
+    <Route path='/student/studentclass/:classname' element={isStudentAuthToken?<Student_Dash_ClassView/>:<Home/>}/>
+    <Route path='/student/specificstudents/:classname' element={isStudentAuthToken?<Student_SpecificView/>:<Home/>}/>
+    <Route path='/student/classTeacher/:classname' element={isStudentAuthToken?<Student_Dash_TeacherView/>:<Home/>}/>
+
   
     </Routes>
     <Footer/>

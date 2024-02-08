@@ -5,12 +5,17 @@ import { allTeachersAPI, deleteTeacherAPI } from '../services/allAPI';
 import { BASE_URL } from '../services/baseurl';
 import { editTeacherResponseContext } from '../context/ContextShare';
 import Swal from 'sweetalert2';
-
+import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function AllTeachers() {
   const{editTeacherResponse,setEditTeacherResponse} = useContext(editTeacherResponseContext)
 const [allTchrget,setAllTchrGet] = useState([])
 
 const [teacherSearchKey,setTeacherSearchKey] = useState("")
+useEffect(()=>{
+  AOS.init({duration:'1000' , delay:'100'});
+},[])
 
 const getAllTeachers = async()=>{
     
@@ -98,28 +103,30 @@ const handleDelete = async (id) => {
         {allTchrget?.length>0?
         allTchrget?.map((item)=>(<Col>
           <div className="container mt-3">
-  <div className="card  rounded cardshd">
-    <div className="text-center">
-      <div className="rounded-circle overflow-hidden mx-auto mt-2" style={{ width: '200px', height: '200px' }}>
-        <img
-          src={`${BASE_URL}/uploads/${item.teacherImage}`}
-          className="card-img d-block mx-auto"
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          alt="Teacher Image"
-        />
+ <Link to={`/admin/teacherspecificdetails/${item.teacherName}`} style={{textDecoration:'none'}}>
+    <div data-aos="zoom-in" className="btn card  rounded cardshd">
+      <div className="text-center">
+        <div className="rounded-circle overflow-hidden mx-auto mt-2" style={{ width: '200px', height: '200px' }}>
+          <img
+            src={`${BASE_URL}/uploads/${item.teacherImage}`}
+            className="card-img d-block mx-auto"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            alt="Teacher Image"
+          />
+        </div>
+      </div>
+      <div className="card-body">
+        <h4 className="card-title text-center text-primary">{item.teacherName}</h4>
+        <h5 className="card-text text-center">Teacher</h5>
+        <div className="d-flex justify-content-between align-items-center container">
+          <EditTeacher teacherupdate ={item} />
+          <button onClick={()=>handleDelete(item._id)} className="btn btn-danger rounded">
+            <i className="fa-solid fa-trash"></i>
+          </button>
+        </div>
       </div>
     </div>
-    <div className="card-body">
-      <h4 className="card-title text-center text-primary">{item.teacherName}</h4>
-      <h5 className="card-text text-center">Teacher</h5>
-      <div className="d-flex justify-content-between align-items-center container">
-        <EditTeacher teacherupdate ={item} />
-        <button onClick={()=>handleDelete(item._id)} className="btn btn-danger rounded">
-          <i className="fa-solid fa-trash"></i>
-        </button>
-      </div>
-    </div>
-  </div>
+ </Link>
 </div>
 
           </Col>))

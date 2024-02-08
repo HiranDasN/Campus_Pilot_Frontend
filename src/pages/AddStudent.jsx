@@ -10,6 +10,7 @@ function AddStudent() {
        
       </Col>
       <Col md={4}>
+        <br />
        <StudentAdd/>
       </Col>
       <Col md={4}>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Container, Row, Col, Form, Button, Image } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
@@ -6,7 +6,8 @@ import adminImage from '../images/software-engineer.png';
 import { loginAPI } from '../services/allAPI';
 import Swal from 'sweetalert2';
 import { AdminHeaderContentContext, isAdminDeletedContext, isAuthTokenContext } from '../context/ContextShare';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function AdminLogin() {
 
   const {isAuthToken,setIsAuthToken} = useContext(isAuthTokenContext)
@@ -67,6 +68,9 @@ function AdminLogin() {
     setShowPassword(!showPassword);
   };
 
+  useEffect(()=>{
+    AOS.init({duration:'1000' , delay:'100'});
+  },[])
   return (
     <>
       <br />
@@ -74,7 +78,7 @@ function AdminLogin() {
         <Container>
           <Row className="justify-content-center">
             <Col xs={12} md={6} lg={4}>
-              <div className="container cardshd p-4 mb-5 bg-white rounded">
+              <div data-aos="zoom-in" className="container cardshd p-4 mb-5 bg-white rounded">
                 <div className="text-center">
                   <Image src={adminImage} alt="Admin" className="rounded-circle mb-3" width="120" height="120" />
                 </div>
