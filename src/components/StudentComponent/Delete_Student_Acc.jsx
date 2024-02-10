@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { deleteStudentAPI} from '../../services/allAPI';
 import Swal from 'sweetalert2';
 import { studLogEditContext } from '../../context/ContextShare';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function Delete_Student_Acc() {
 
   const {studLogEdit,setStudLogEdit} = useContext(studLogEditContext)
@@ -18,6 +19,9 @@ function Delete_Student_Acc() {
     setShowPassword(!showPassword);
   };
 
+  useEffect(()=>{
+    AOS.init({duration:'1000' , delay:'100'});
+  },[])
   useEffect(() => {
     const existingStudent = JSON.parse(sessionStorage.getItem("existingStudent"));
     setStudentLoginInfo(existingStudent);
@@ -56,7 +60,7 @@ function Delete_Student_Acc() {
   }
   return (
     <Container className="my-5">
-    <div className="card cardshd p-4 rounded">
+    <div data-aos="fade-up-left" className="card cardshd p-4 rounded">
       <h2 className="text-center mb-4">Account Details</h2>
       <Row className="mb-3 ms-5">
         <Col md={4}>

@@ -104,16 +104,18 @@ const handleDelete = async (id) => {
          allStudentget?.map((item)=>(<Col>
           <div   className="container mt-3">
 
-    <Link to={`/admin/studentspecificdetails/${item.studentName}`} style={{textDecoration:'none'}}>
-        <div data-aos="zoom-in" className="btn card rounded cardshd">
+        <div data-aos="zoom-in" className="card rounded cardshd">
         <div className="text-center">
            <div className='rounded-circle overflow-hidden mx-auto mt-2' style={{ width: '200px', height: '200px' }}>
+           <Link to={`/admin/studentspecificdetails/${item.studentName}`} style={{textDecoration:'none'}}>
            <img
             src={`${BASE_URL}/uploads/${item.studentImage}`}
             className="card-img d-block mx-auto"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             alt="Teacher Image"
           />
+          </Link>
+
            </div>
         </div>
           <div className="card-body">
@@ -128,7 +130,6 @@ const handleDelete = async (id) => {
             </div>
           </div>
         </div>
-    </Link>
 
     </div>
           </Col>))

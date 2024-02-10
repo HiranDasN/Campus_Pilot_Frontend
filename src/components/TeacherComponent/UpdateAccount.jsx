@@ -3,15 +3,21 @@ import { Container, Card, TextField, Button } from '@mui/material';
 import Swal from 'sweetalert2';
 import { editTeacherLoginAPI } from '../../services/allAPI';
 import { tchrLogEditContext } from '../../context/ContextShare';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function UpdateAccount() {
 
   const {tchrLogEdit,setTchrLogEdit} = useContext(tchrLogEditContext)
+
     const [teacherLoginData, setTeacherLoginData] = useState({
         
         teacherEmail:'',
         teacherPswd:'',
       });
 
+useEffect(()=>{
+    AOS.init({duration:'1000' , delay:'100'});
+  },[])
       
 useEffect(()=>{
   setTeacherLoginData(JSON.parse(sessionStorage.getItem("existingTeacher")))
@@ -60,8 +66,8 @@ useEffect(()=>{
       }
   return (
     <Container className="my-5">
-<div className='cardshd'>
-      <Card className="p-4">
+<div data-aos="fade-up-right" className='cardshd'>
+      <Card  className="p-4">
         <h2 className="text-center mb-4">Update Account</h2>
         <form>
           <TextField

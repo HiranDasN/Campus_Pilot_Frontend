@@ -15,11 +15,15 @@ import carslimg4 from '../images/photo-1573496130141-209d200cebd8.avif'
 import carslimg5 from '../images/premium_photo-1661714193960-ae07c29f9c64.avif'
 import { Link } from 'react-router-dom';
 import { isStudentAuthTokenContext, isTeacherAuthTokenContext } from '../context/ContextShare';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function HomePage() {
   const {isTeacherAuthToken,setIsteacherAuthToken} = useContext(isTeacherAuthTokenContext)
   const {isStudentAuthToken,setIsStudentAuthToken} = useContext(isStudentAuthTokenContext)
 
+  useEffect(()=>{
+    AOS.init({duration:'1000' , delay:'100'});
+  },[])
 
   useEffect(()=>{
 if (sessionStorage.getItem('token')) {
@@ -55,7 +59,7 @@ setIsteacherAuthToken(false)
         </Row>
         <Row className="my-4">
           <Col md={4} className="mb-4">
-            <Card className='card shadow border border-primary'>
+            <Card data-aos="zoom-in"  className='card shadow border border-primary'>
               <Card.Img variant="top" src={studmng} width={"300px"} height={"300px"} />
               <Card.Body>
                 <Card.Title className="text-center">Student Management</Card.Title>
@@ -66,7 +70,7 @@ setIsteacherAuthToken(false)
             </Card>
           </Col>
           <Col md={4} className="mb-4">
-            <Card className='card shadow border border-primary'>
+            <Card data-aos="zoom-in" className='card shadow border border-primary'>
               <Card.Img variant="top" src={tchrmng} width={"300px"} height={"300px"}  />
               <Card.Body>
                 <Card.Title className="text-center">Teacher Management</Card.Title>
@@ -77,7 +81,7 @@ setIsteacherAuthToken(false)
             </Card>
           </Col>
           <Col md={4} className="mb-4">
-          <Card className='card shadow border border-primary'>
+          <Card data-aos="zoom-in" className='card shadow border border-primary'>
               <Card.Img variant="top" src={admn} width={"300px"} height={"300px"} />
               <Card.Body>
                 <Card.Title className="text-center">School Administration</Card.Title>
@@ -101,7 +105,7 @@ setIsteacherAuthToken(false)
       <div className="bg-light text-center py-5">
         <Container>
           <h2>Manage Your Campus</h2>
-          <Carousel className='border cardshd border-primary w-100 h-75'>
+          <Carousel className=' cardshd  w-100 h-75'>
             <Carousel.Item>
               <img
                 className="d-block w-100"

@@ -55,20 +55,22 @@ function Student_Dash_ClassView() {
                 return (
                     <Col key={item._id}>
                         <div className="container mt-3 w-100">
-                            <div className="card w-100 rounded cardhvr" style={{ backgroundColor: 'steelblue' }}>
+                        <Link to={`/student/specificstudents/${item.className}`} style={{textDecoration:'none'}}>
+
+                            <div className="btn card w-100 rounded cardhvr" style={{ backgroundColor: 'steelblue' }}>
                                 <div className="card-body">
                                     <h3 className="card-title text-center text-light">{item.className}</h3>
                                     <div className="d-flex justify-content-between align-items-center container mt-4">
                                         <h3 className="card-text text-center pt-3 text-light" style={{ fontSize: '34px' }}>{studentCount}</h3>
-                                        <Link to={`/student/specificstudents/${item.className}`}>
                                         <i className="fa-solid fa-user-graduate fa-2x text-light"></i>
-                                        </Link>
 
                                     </div>
                                     <h4 className='text-light ms-2' style={{ float: 'left' }}>Student</h4>
                                 
                                 </div>
                             </div>
+                            </Link>
+
                         </div>
                     </Col>
                 );

@@ -103,16 +103,18 @@ const handleDelete = async (id) => {
         {allTchrget?.length>0?
         allTchrget?.map((item)=>(<Col>
           <div className="container mt-3">
- <Link to={`/admin/teacherspecificdetails/${item.teacherName}`} style={{textDecoration:'none'}}>
-    <div data-aos="zoom-in" className="btn card  rounded cardshd">
+    <div data-aos="zoom-in" className="card  rounded cardshd">
       <div className="text-center">
         <div className="rounded-circle overflow-hidden mx-auto mt-2" style={{ width: '200px', height: '200px' }}>
+        <Link to={`/admin/teacherspecificdetails/${item.teacherName}`} style={{textDecoration:'none'}}>
           <img
             src={`${BASE_URL}/uploads/${item.teacherImage}`}
             className="card-img d-block mx-auto"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             alt="Teacher Image"
           />
+           </Link>
+
         </div>
       </div>
       <div className="card-body">
@@ -126,7 +128,6 @@ const handleDelete = async (id) => {
         </div>
       </div>
     </div>
- </Link>
 </div>
 
           </Col>))

@@ -2,7 +2,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Container, Card, TextField, Button } from '@mui/material';
 import { editStdLoginAPI } from '../../services/allAPI';
 import Swal from 'sweetalert2';
-import { studLogEditContext } from '../../context/ContextShare';
+import { studLogEditContext } from '../../context/ContextShare';import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 function UpdateStudentAcc() {
 
   const {studLogEdit,setStudLogEdit} = useContext(studLogEditContext)
@@ -13,6 +15,9 @@ function UpdateStudentAcc() {
         studentPswd:'',
       });
 
+      useEffect(()=>{
+        AOS.init({duration:'1000' , delay:'100'});
+      },[])  
       
 useEffect(()=>{
   setStudentLoginData(JSON.parse(sessionStorage.getItem("existingStudent")))
@@ -62,7 +67,7 @@ useEffect(()=>{
   return (
 
     <Container className="my-5">
-   <div className='cardshd'>
+   <div data-aos="fade-up-right" className='cardshd'>
       <Card className="p-4 ">
         <h2 className="text-center mb-4">Update Account</h2>
         <form>

@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { deleteTeacherAPI } from '../../services/allAPI';
 import Swal from 'sweetalert2';
 import {  tchrLogEditContext } from '../../context/ContextShare';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function ViewAccount() {
 
   const {tchrLogEdit,setTchrLogEdit} = useContext(tchrLogEditContext)
@@ -16,7 +17,9 @@ function ViewAccount() {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-
+  useEffect(()=>{
+    AOS.init({duration:'1000' , delay:'100'});
+  },[])
   useEffect(() => {
     const existingTeacher = JSON.parse(sessionStorage.getItem("existingTeacher"));
     setTeacherLoginInfo(existingTeacher);
@@ -54,7 +57,7 @@ function ViewAccount() {
   }
   return (
     <Container className="my-5">
-    <div className="card cardshd p-4 rounded">
+    <div data-aos="fade-up-left" className="card cardshd p-4 rounded">
       <h2 className="text-center mb-4">Account Details</h2>
       <Row className="mb-3 ms-5">
         <Col md={4}>
