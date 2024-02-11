@@ -48,14 +48,15 @@ function AdminSpecificStudent() {
     
           const result = await allClassesAPI('', reqHeader);
           console.log(result.data);
-          setStudentClass(result.data.filter(classInfo => classInfo.className === StudentInfo.selectedClass));
+          setStudentClass(result.data.filter(classInfo => classInfo?.className === StudentInfo?.selectedClass));
         }
       };
     
+      console.log(studentClass);
     
       useEffect(() => {
         getAllClass();
-      }, []);
+      });
 
   return (
 

@@ -35,7 +35,18 @@ function ViewAccount() {
   }
 
   const handleDelete = async(id)=>{
-    const token = sessionStorage.getItem("token")
+    const isConfirmed = await Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    });
+
+    if (isConfirmed.isConfirmed){  
+   const token = sessionStorage.getItem("token")
     const reqHeader = {
       "Content-Type" : "application/json",
       "Authorization" : `Bearer ${token}`
@@ -54,6 +65,7 @@ function ViewAccount() {
     else{
       console.log(result.response.data);
     }
+  }
   }
   return (
     <Container className="my-5">

@@ -59,7 +59,7 @@ setIsteacherAuthToken(false)
         </Row>
         <Row className="my-4">
           <Col md={4} className="mb-4">
-            <Card data-aos="zoom-in"  className='card shadow border border-primary'>
+            <Card data-aos="zoom-in"  className='card cardhvr border border-primary'>
               <Card.Img variant="top" src={studmng} width={"300px"} height={"300px"} />
               <Card.Body>
                 <Card.Title className="text-center">Student Management</Card.Title>
@@ -70,7 +70,7 @@ setIsteacherAuthToken(false)
             </Card>
           </Col>
           <Col md={4} className="mb-4">
-            <Card data-aos="zoom-in" className='card shadow border border-primary'>
+            <Card data-aos="zoom-in" className='card cardhvr border border-primary'>
               <Card.Img variant="top" src={tchrmng} width={"300px"} height={"300px"}  />
               <Card.Body>
                 <Card.Title className="text-center">Teacher Management</Card.Title>
@@ -81,7 +81,7 @@ setIsteacherAuthToken(false)
             </Card>
           </Col>
           <Col md={4} className="mb-4">
-          <Card data-aos="zoom-in" className='card shadow border border-primary'>
+          <Card data-aos="zoom-in" className='card cardhvr border border-primary'>
               <Card.Img variant="top" src={admn} width={"300px"} height={"300px"} />
               <Card.Body>
                 <Card.Title className="text-center">School Administration</Card.Title>
